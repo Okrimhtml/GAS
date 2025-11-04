@@ -1,0 +1,275 @@
+
+/* ============================================== */
+/* 📱 MEDIA QUERIES PER MOBILE (max 768px) */
+/* Applicato a tablet e smartphone in verticale */
+/* ============================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* --- Sidebar (La sfida principale) --- */
+    /* La sidebar non può essere "fixed right" su schermi piccoli senza coprire il contenuto */
+    .sidebar {
+        width: 100%; /* Occupa tutta la larghezza */
+        height: auto; /* Altezza automatica */
+        position: static; /* Non più fissa, ma scorre con la pagina */
+        right: auto;
+        top: auto;
+        border-left: none;
+        border-bottom: 5px solid white; /* Aggiungi un separatore in basso */
+        padding-top: 1em;
+        /* Rimuovi l'animazione slide-in se non è più fissa */
+        transform: translateX(0);
+        animation: none;
+    }
+
+    .slidebar-animata {
+        transform: translateX(0) !important; /* Assicura che sia visibile */
+        animation: none !important;
+    }
+
+    /* --- Contenitore principale (website-wrapper) --- */
+    .website-wrapper {
+        display: block; /* Non più flex */
+        height: auto; /* Altezza automatica */
+    }
+
+    .main-content {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    /* --- Semicerchio (La struttura principale di GAS.html) --- */
+    .semicircle-container {
+        /* Adattiamo la discesa per il nuovo posizionamento statico */
+        animation: slideDownMobile 1s ease-out forwards;
+    }
+
+    .semicircle {
+        width: 100%; /* Occupa tutta la larghezza */
+        height: 180px; /* Riduci ulteriormente l'altezza */
+        border-radius: 0 0 50% 50%; /* Riduci la curva */
+        border-bottom: 10px solid white;
+    }
+
+    @keyframes slideDownMobile {
+        0% { transform: translateY(-100px); }
+        100% { transform: translateY(0); }
+    }
+
+    /* --- Testo "I GAS" --- */
+    .text-gas {
+        font-size: 5em; /* Molto più piccolo */
+        margin-left: 0;
+        text-align: center; /* Centra il testo */
+        width: 100%;
+        margin-top: 10px;       /*era un 40px*/
+    }
+    
+    /* --- Contenitore Testo (container) --- */
+    .container {
+        width: 95%; 
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+    
+    .container p, .container h2, .container b, .container em {
+        text-align: left; /* Mantieni l'allineamento a sinistra all'interno del container */
+        font-size: 16px; /* Riduci la dimensione dei caratteri per leggibilità */
+    }
+    
+    /* --- Paragrafi con Sfondo (mio-paragrafo) --- */
+    .mio-paragrafo {
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+        max-height: none; /* Rimuovi restrizioni di altezza su mobile */
+        box-sizing: border-box;
+    }
+    
+    /* --- Utilità di Distanza --- */
+    .distanza, .distanzasù, .distanzagiù {
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* --- Formule (matematica) --- */
+    .formula {
+        font-size: 1.2em; /* Riduci leggermente la dimensione del font delle formule */
+        margin: 15px 0;
+        margin-left: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* --- Video --- */
+    .video-centrale {
+        width: 100%; /* Occupa l'intera larghezza disponibile */
+        height: auto; /* Altezza automatica per mantenere l'aspect ratio */
+        max-width: 450px; /* Limite massimo per non esagerare */
+    }
+	
+	
+	.mappa-concettuale {
+    width: 100%; /* Forza ad occupare tutto lo spazio disponibile nel .container ridotto */
+    padding: 0;  /* Rimuovi eventuali padding che stringono */
+    }
+	
+	
+}
+
+
+
+/* ============================================== */
+/* 🛠️ MEDIA QUERIES PER TABLET E DESKTOP COMPATTI (769px - 1200px) */
+/* Include iPad orizzontale (1024px) */
+/* ============================================== */
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+
+    /* --- SIDEBAR --- */
+    .sidebar {
+        width: 280px; /* Riduci la larghezza per lasciare più spazio al contenuto */
+        padding: 1.5em;
+        /* MANTENERE position: fixed dal CSS di base è corretto per il desktop */
+    }
+    
+    /* --- CONTENUTO PRINCIPALE (website-wrapper e container) --- */
+    
+    /* Regola il margine per fare spazio alla sidebar fissa */
+    body {
+        /* Sposta il contenuto principale a sinistra per dare spazio alla sidebar di 280px + margine */
+        margin-right: 300px; /* Larghezza sidebar + margine */
+    }
+
+    /* Il contenuto principale deve usare la larghezza disponibile */
+    .main-content {
+        width: 100%; /* Occupa lo spazio rimanente */
+        padding: 0;
+    }
+
+    /* --- Semicerchio (GAS.html) --- */
+    .website-wrapper {
+        height: 300px; 
+    }
+
+    .semicircle {
+        width: 100%; /* Deve occupare tutta la larghezza disponibile (che è già ridotta dal margin-right del body) */
+        height: 250px;
+        /* Rimuovi width: 80% che hai attualmente, ora deve essere 100% dello spazio disponibile */
+    }
+
+    .text-gas {
+        font-size: 8em;
+        margin-left: 50px; /* Riadatta il margine per la nuova larghezza */
+        margin-top: 60px;
+    }
+    
+    /* --- Contenitore Testo (container, paragrafoscritte) --- */
+    .container {
+        /* Rimuovi margin-left: auto/margin-right: auto perché il margin-right del body sta già centrando */
+        width: 95%; 
+        margin-left: 2%; /* Piccolo margine interno a sinistra */
+        margin-right: 2%; 
+        box-sizing: border-box;
+    }
+    
+    .paragrafoscritte, .miniparagrafo {
+        width: 98%;
+        margin-left: 1%;
+        height: auto;
+        padding: 10px 5px;
+        box-sizing: border-box;
+    }
+    
+    .paragrafoscritte p {
+        font-size: 30px !important; /* Riduci per il tablet */
+    }
+
+    .miniparagrafo {
+        width: 90%;
+        margin-left: 5%; 
+        margin-right: 5%;
+        height: auto;
+        padding: 10px 5px;
+    }
+	
+	
+	.mappa-concettuale {
+    /* Aumenta il margine verticale per staccare dal testo */
+    margin: 40px auto; 
+    
+    /* Assicurati che non si stringa troppo a causa di padding eccessivo del .container */
+    max-width: 95%; 
+    }
+}
+
+
+
+
+/* ============================================== */
+/* 📺 MEDIA QUERIES PER DESKTOP LARGO / LIM (min 1600px) */
+/* Ottimizzazione per schermi grandi e Lavagne Interattive. */
+/* ============================================== */
+
+@media screen and (min-width: 1600px) {
+
+    /* --- Struttura Generale --- */
+    .main-content {
+        max-width: 1600px; /* Limita la larghezza massima del contenuto centrale */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+        width: 450px; /* Sidebar leggermente più larga */
+    }
+
+    /* --- Semicerchio (GAS.html) --- */
+    .website-wrapper {
+        height: 400px; /* Aumenta l'altezza per schermi grandi */
+    }
+
+    .semicircle {
+        width: 60%; /* Riduci la larghezza del semicerchio */
+        height: 350px;
+    }
+
+    .text-gas {
+        font-size: 14em; /* Dimensioni maggiori per il titolo */
+        margin-left: 300px;
+        margin-top: 60px;
+    }
+
+    /* --- Contenuto (container, paragrafoscritte) --- */
+    /* Sovrascrivi le larghezze fisse di 1010px per renderle più grandi e centrate */
+    .container, .paragrafoscritte {
+        width: 1200px; /* Nuovo limite di larghezza */
+        max-width: 80%; /* Assicurati che non superi l'80% della pagina */
+        margin-left: auto; /* Centra orizzontalmente */
+        margin-right: auto;
+    }
+
+    .container p {
+        font-size: 24px; /* Aumenta la dimensione del testo per leggibilità su LIM */
+    }
+
+    .miniparagrafo {
+        width: 700px; /* Aumenta la dimensione del miniparagrafo */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* --- Formule (matematica) --- */
+    .formula {
+        font-size: 1.8em; /* Ingrandisci le formule */
+        width: 90%; /* Aumenta leggermente la larghezza delle formule */
+    }
+	
+	
+	.mappa-concettuale {
+    /* Mantieni una buona larghezza, ma aggiungi spazio verticale per staccare dal testo */
+    max-width: 90%; 
+    margin: 50px auto; /* Aumenta i margini su schermi grandi */
+    }
+}
