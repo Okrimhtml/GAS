@@ -70,6 +70,7 @@
         width: 95%; 
         grid-template-columns: 1fr;
         margin-top: 20px;
+		margin-left: 0px auto;
     }
     
     .container p, .container h2, .container b, .container em {
@@ -100,13 +101,23 @@
         width: 100%;
         box-sizing: border-box;
     }
+	
+.paragrafoscritte, .miniparagrafo {
+    width: 100%; /* Sfrutta tutta la larghezza disponibile (che è già ristretta dal <body> se hai un margine) */
+    margin: 0 auto !important; /* Rimuovi margini esterni indesiderati */
+    margin-left: 0px !important; /* Forza il margine sinistro a zero */
+    box-sizing: border-box;
+}
+
 
     /* --- Video --- */
-    .video-centrale {
-        width: 100%; /* Occupa l'intera larghezza disponibile */
-        height: auto; /* Altezza automatica per mantenere l'aspect ratio */
-        max-width: 400px; /* Limite massimo per non esagerare */
-    }
+.video-centrale {
+    width: 100%; /* Forziamo il video a usare il 100% della larghezza disponibile */
+    height: auto; /* Manteniamo le proporzioni! */
+    max-width: 100%; /* Impedisce che il video superi il contenitore */
+    display: block;
+    margin: 20px auto; /* Lo centramo */
+}
 	
 	
 	.mappa-concettuale {
