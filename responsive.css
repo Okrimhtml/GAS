@@ -105,7 +105,7 @@
     .video-centrale {
         width: 100%; /* Occupa l'intera larghezza disponibile */
         height: auto; /* Altezza automatica per mantenere l'aspect ratio */
-        max-width: 450px; /* Limite massimo per non esagerare */
+        max-width: 400px; /* Limite massimo per non esagerare */
     }
 	
 	
