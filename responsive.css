@@ -131,86 +131,55 @@
 
 
 /* ============================================== */
-/* 🛠️ MEDIA QUERIES PER TABLET E DESKTOP COMPATTI (769px - 1200px) */
-/* Include iPad orizzontale (1024px) */
+/* 🛠️ MEDIA QUERIES PER SCHERMI MEDI (Tablet Orizzontale, Desktop Compatti, Monitor Prof) */
+/* Il range è esteso a 1400px per includere i portatili con bassa risoluzione. */
 /* ============================================== */
 
-@media screen and (min-width: 769px) and (max-width: 1200px) {
+@media screen and (min-width: 769px) and (max-width: 1400px) {
 
-    /* --- SIDEBAR --- */
+    /* --- SIDEBAR: La modifica CRUCIALE per guadagnare spazio --- */
     .sidebar {
-        width: 280px; /* Riduci la larghezza per lasciare più spazio al contenuto */
-        padding: 1.5em;
-        /* MANTENERE position: fixed dal CSS di base è corretto per il desktop */
+        width: 250px; /* Ridotta da 400px per lasciare più spazio al contenuto */
+        padding: 1em;
     }
     
-    /* --- CONTENUTO PRINCIPALE (website-wrapper e container) --- */
-    
-    /* Regola il margine per fare spazio alla sidebar fissa */
+    /* --- BODY: Sposta il contenuto per liberare lo spazio a sinistra della sidebar fissa --- */
     body {
-        /* Sposta il contenuto principale a sinistra per dare spazio alla sidebar di 280px + margine */
-        margin-right: 300px; /* Larghezza sidebar + margine */
+        /* 250px (sidebar) + 20px (margine) = 270px */
+        margin-right: 270px !important; 
     }
 
-    /* Il contenuto principale deve usare la larghezza disponibile */
-    .main-content {
-        width: 100%; /* Occupa lo spazio rimanente */
-        padding: 0;
+    /* --- CONTENUTO PRINCIPALE (Container, Header, Footer) --- */
+    
+    /* Forza tutti i contenitori a usare lo spazio disponibile ridotto */
+    .container, .paragrafoscritte, .miniparagrafo, .website-wrapper, .main-content {
+        width: 100% !important; /* Usa il 100% dello spazio lasciato dal body */
+        max-width: none !important; /* Annulla qualsiasi limite massimo (come 1010px) */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box;
     }
 
-    /* --- Semicerchio (GAS.html) --- */
-    .website-wrapper {
-        height: 300px; 
-    }
-
+    /* --- Semicerchio e Testo "I GAS" --- */
     .semicircle {
-        width: 100%; /* Deve occupare tutta la larghezza disponibile (che è già ridotta dal margin-right del body) */
+        width: 100%; /* Occupa il 100% dello spazio disponibile ridotto */
         height: 250px;
-        /* Rimuovi width: 80% che hai attualmente, ora deve essere 100% dello spazio disponibile */
     }
 
     .text-gas {
-        font-size: 8em;
-        margin-left: 50px; /* Riadatta il margine per la nuova larghezza */
+        font-size: 7em; /* Riduci il font per schermi più piccoli */
+        margin-left: 30px; /* Riadatta la posizione del testo */
         margin-top: 60px;
     }
     
-    /* --- Contenitore Testo (container, paragrafoscritte) --- */
-    .container {
-        /* Rimuovi margin-left: auto/margin-right: auto perché il margin-right del body sta già centrando */
-        width: 95%; 
-        margin-left: 2%; /* Piccolo margine interno a sinistra */
-        margin-right: 2%; 
-        box-sizing: border-box;
-    }
-    
-    .paragrafoscritte, .miniparagrafo {
-        width: 98%;
-        margin-left: 1%;
-        height: auto;
-        padding: 10px 5px;
-        box-sizing: border-box;
-    }
-    
+    /* --- Testo e Paragrafi --- */
     .paragrafoscritte p {
-        font-size: 30px !important; /* Riduci per il tablet */
+        font-size: 35px !important; /* Leggermente ridotto per schermi medi */
     }
 
-    .miniparagrafo {
-        width: 90%;
-        margin-left: 5%; 
-        margin-right: 5%;
-        height: auto;
-        padding: 10px 5px;
-    }
-	
-	
-	.mappa-concettuale {
-    /* Aumenta il margine verticale per staccare dal testo */
-    margin: 40px auto; 
-    
-    /* Assicurati che non si stringa troppo a causa di padding eccessivo del .container */
-    max-width: 95%; 
+    /* --- Video --- */
+    .video-centrale {
+        max-width: 800px; /* Limite massimo sul desktop compatto */
     }
 }
 
